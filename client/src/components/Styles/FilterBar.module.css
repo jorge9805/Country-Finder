@@ -1,0 +1,28 @@
+.items {
+  display: flex;
+  width: 100vw;
+  justify-content: space-evenly;
+  margin: 15px 15px;
+}
+.items select {
+  border-radius: 7px;
+  background-color: #f2f2f2;
+  font-size: 18px;
+  padding: 7px 12px;
+}
+.items label {
+  font-size: 17px;
+}
+
+.items select:focus {
+  border-color: black;
+  border-width: 3px;
+}
+.items input {
+  border-radius: 7px;
+  background-color: #f2f2f2;
+}
+.items input:focus {
+  border-color: black;
+  border-width: 3px;
+}

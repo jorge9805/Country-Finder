@@ -1,0 +1,38 @@
+.backgroundimg {
+  height: 100vh;
+  background-image: url("https://wallpapercave.com/wp/wp2292844.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+.plane {
+  position: absolute;
+  top: 370px;
+  left: -400px;
+  width: 400px;
+  height: auto;
+  -webkit-animation: plane 0.5s forwards;
+  -webkit-animation-delay: 1.5s;
+  animation: plane 0.5s forwards;
+  animation-delay: 1.5s;
+}
+
+@-webkit-keyframes plane {
+  100% {
+    left: 800px;
+  }
+}
+
+@keyframes plane {
+  100% {
+    left: 800px;
+  }
+}
+/* @keyframes plane {
+  from {
+    rigth: 300px;
+  }
+  to {
+    left: 300px;
+  }
+} */
