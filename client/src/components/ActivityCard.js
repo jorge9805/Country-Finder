@@ -46,11 +46,10 @@ const ActivityCard = ({ name, duration, season, difficulty }) => {
         Difficulty:&nbsp;
         {difficulty === 1 || difficulty === 2
           ? "easy"
-          : difficulty == 3
+          : difficulty === 3
           ? "moderate"
           : "hard"}
       </p>
-      {/* </div> */}
     </div>
   );
 };

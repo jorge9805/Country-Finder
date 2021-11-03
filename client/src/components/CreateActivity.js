@@ -128,8 +128,7 @@ const CreateActivity = () => {
 
 export default CreateActivity;
 
-{
-  /* <input
+/* <input
   type="number"
   name="difficulty"
   id="difficulty"
@@ -139,4 +138,3 @@ export default CreateActivity;
   value={activity.difficulty}
   onChange={handleOnChangeForDifficulty}
 /> */
-}

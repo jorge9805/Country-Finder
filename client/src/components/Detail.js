@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries, getCountryById } from "../redux/actions";
+import { getCountryById } from "../redux/actions";
 import ActivityCard from "./ActivityCard";
 import DetailCSS from "./Styles/Detail.module.css";
 
@@ -13,7 +13,7 @@ const Detail = ({
   const { detail } = useSelector((state) => state);
   useEffect(() => {
     dispatch(getCountryById(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
   console.log(detail);
   return (
     <div>
@@ -63,11 +63,10 @@ const Detail = ({
 export default Detail;
 
 // https://codepen.io/ahmadbassamemran/pen/XvdEoO
-{
-  /* <div key={activity.id} className={DetailCSS.activity_card}>
+
+/* <div key={activity.id} className={DetailCSS.activity_card}>
               <p>{activity.name}</p>
               <p>{activity.difficulty}</p>
               <p>{activity.duration}</p>
               <p>{activity.season}</p>
             </div> */
-}

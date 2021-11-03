@@ -35,7 +35,7 @@ const reducer = (state = initialState, { type, payload }) => {
           for (let i = 0; i < country.activities.length; i++) {
             return country.activities[i].id === Number(activity);
           }
-          return;
+          return undefined;
           // }
         });
         console.log(countriesByActivity);

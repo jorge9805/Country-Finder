@@ -1,5 +1,4 @@
 import "../App.css";
-import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,6 +13,8 @@ import FilterBarCSS from "./Styles/FilterBar.module.css";
 import HomeCSS from "./Styles/Home.module.css";
 function Home() {
   const dispatch = useDispatch();
+  const { countries, page, orderAlphabetic, orderPopulation, continent, name } =
+    useSelector((state) => state);
   useEffect(() => {
     dispatch(
       getCountries({
@@ -24,9 +25,7 @@ function Home() {
         name,
       })
     );
-  }, [dispatch]);
-  const { countries, page, orderAlphabetic, orderPopulation, continent, name } =
-    useSelector((state) => state);
+  }, [dispatch, page, orderAlphabetic, orderPopulation, continent, name]);
   let countriesOfPage = [];
   countries && (countriesOfPage = countries.slice(page * 10, page * 10 + 10));
   countriesOfPage = countriesOfPage.map((country) => {

@@ -7,7 +7,6 @@ const NavBar = () => {
     <ul className={NavBarCSS}>
       <li>
         <NavLink
-          className={NavBarCSS.navlink}
           exact
           to="/home"
           className={NavBarCSS.link}
