@@ -36,23 +36,29 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, HEROKU_POSTGRESQL_BLACK_URL } =
 //         { logging: false, native: false }
 //       );
 
-const sequelize = new Sequelize(HEROKU_POSTGRESQL_BLACK_URL, {
-  password: DB_PASSWORD,
-  pool: {
-    max: 3,
-    min: 1,
-    idle: 10000,
-  },
-  dialectOptions: {
-    ssl: {
-      require: true,
-      // Ref.: https://github.com/brianc/node-postgres/issues/2009
-      rejectUnauthorized: false,
-    },
-    keepAlive: true,
-  },
-  ssl: true,
-});
+const sequelize =
+  process.env.NODE_ENV === "production"
+    ? new Sequelize(HEROKU_POSTGRESQL_BLACK_URL, {
+        password: DB_PASSWORD,
+        pool: {
+          max: 3,
+          min: 1,
+          idle: 10000,
+        },
+        dialectOptions: {
+          ssl: {
+            require: true,
+            // Ref.: https://github.com/brianc/node-postgres/issues/2009
+            rejectUnauthorized: false,
+          },
+          keepAlive: true,
+        },
+        ssl: true,
+      })
+    : new Sequelize(
+        `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`,
+        { logging: false, native: false }
+      );
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
