@@ -9,8 +9,7 @@ import dotenv from "dotenv";
 import axios from "axios";
 dotenv.config();
 axios.defaults.baseURL =
-  process.env.REACT_APP_API ||
-  "http://https://country-finder-giorgio.herokuapp.com";
+  process.env.REACT_APP_API || "https://country-finder-giorgio.herokuapp.com";
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
