@@ -27,7 +27,7 @@ conn.sync({ force: true }).then(() => {
   server.listen(process.env.PORT, async () => {
     console.log("%s Cargando los paises...");
     const preload = await fromApiToDb();
-    console.log("%s " + preload);
+    // console.log("%s " + preload);
     console.log("%s listening at 3001");
   });
 });

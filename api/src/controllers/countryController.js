@@ -79,7 +79,7 @@ const fromApiToDb = () => {
           population: country.population || 0,
         });
       });
-      console.log(countries);
+      // console.log(countries);
     })
     .catch((error) => console.log(error));
 };
