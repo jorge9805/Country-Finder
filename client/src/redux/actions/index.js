@@ -18,7 +18,7 @@ export const SET_ACTIVITY = "SET_ACTIVITY";
 export const getActivities = () => {
   return (dispatch) => {
     axios
-      .get("http://localhost:3001/activities")
+      .get("/activities")
       .then((activities) => {
         return dispatch({
           type: GET_ACTIVITIES,
@@ -32,7 +32,7 @@ export const getActivities = () => {
 export const createActivity = (activity) => {
   return (dispatch) => {
     axios
-      .post(`http://localhost:3001/activities`, activity)
+      .post(`/activities`, activity)
       .then(() => {
         return dispatch({
           type: CREATE_ACTIVITY,
@@ -54,11 +54,9 @@ export const getCountries = ({
   return (dispatch) => {
     axios
       .get(
-        `http://localhost:3001/countries/?alphabetic=${
-          orderAlphabetic || ""
-        }&population=${orderPopulation || ""}&continent=${
-          continent || ""
-        }&name=${name || ""}`
+        `/countries/?alphabetic=${orderAlphabetic || ""}&population=${
+          orderPopulation || ""
+        }&continent=${continent || ""}&name=${name || ""}`
       )
       .then((countries) => {
         return dispatch({
@@ -74,7 +72,7 @@ export const getCountries = ({
 
 export const getCountryById = (id) => {
   return (dispatch) => {
-    axios.get(`http://localhost:3001/countries/${id}`).then(({ data }) => {
+    axios.get(`/countries/${id}`).then(({ data }) => {
       return dispatch({
         type: GET_COUNTRY_BY_ID,
         payload: data,

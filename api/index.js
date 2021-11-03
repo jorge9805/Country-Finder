@@ -24,7 +24,8 @@ const { fromApiToDb } = require("./src/controllers/countryController");
 // Syncing all the models at once.
 
 conn.sync({ force: false }).then(() => {
-  server.listen(3001, () => {
+  //puerto es 3001
+  server.listen(process.env.PORT, () => {
     // console.log("%s Cargando los paises...");
     // const preload = await fromApiToDb();
     // console.log("%s " + preload);
