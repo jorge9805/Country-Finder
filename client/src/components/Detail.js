@@ -18,6 +18,7 @@ const Detail = ({
   return (
     <div>
       <h1>Detail</h1>
+      <h2 className={DetailCSS.title_queries}>{detail?.name}</h2>
       <div className={DetailCSS.card}>
         <div className={DetailCSS.card_image}>
           <img src={detail?.img} alt={detail?.name} />

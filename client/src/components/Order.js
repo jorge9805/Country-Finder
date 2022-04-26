@@ -43,8 +43,8 @@ const Order = () => {
         <option value="">Sort results by</option>
         <option value="asc">A-Z</option>
         <option value="desc">Z-A</option>
-        <option value="more">Largest Population(First)</option>
-        <option value="less">Lowest Population(First)</option>
+        <option value="more">Largest Population</option>
+        <option value="less">Lowest Population</option>
       </select>
     </div>
   );

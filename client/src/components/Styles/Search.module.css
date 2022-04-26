@@ -18,7 +18,7 @@
 
 .search_btn {
   width: 40px;
-  height: 36px;
+  height: 35px;
   border: 1px solid #04aa6d;
   background: #04aa6d;
   text-align: center;
@@ -35,4 +35,19 @@
   margin: auto;
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+/*media queries do the wrap   60% and the search button smaller*/
+@media screen and (max-width: 800px) {
+  .wrap {
+    width: 60%;
+  }
+  .search_input {
+    height: 14px;
+  }
+  .search_btn {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+  }
 }

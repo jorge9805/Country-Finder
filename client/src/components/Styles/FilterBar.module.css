@@ -1,8 +1,9 @@
 .items {
   display: flex;
-  width: 100vw;
+  width: 100%;
   justify-content: space-evenly;
   margin: 15px 15px;
+  flex-wrap: wrap;
 }
 .items select {
   border-radius: 7px;
@@ -25,4 +26,27 @@
 .items input:focus {
   border-color: black;
   border-width: 3px;
+}
+/*for  media queries do either  the items and the font size smaller */
+@media screen and (max-width: 800px) {
+  .items {
+    width: 100%;
+    justify-content: center;
+    margin: 15px 0 15px 0;
+    gap: 2px;
+  }
+  .items select {
+    border-radius: 7px;
+    background-color: #f2f2f2;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 12px;
+  }
+  .items label {
+    font-size: 15px;
+  }
+  .items input {
+    border-radius: 7px;
+    background-color: #f2f2f2;
+  }
 }
