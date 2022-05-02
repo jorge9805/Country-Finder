@@ -50,6 +50,7 @@ const Detail = ({
                 difficulty={activity.difficulty}
                 duration={activity.duration}
                 season={activity.season}
+                key={activity.id}
               />
             );
           })

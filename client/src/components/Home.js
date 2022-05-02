@@ -2,7 +2,14 @@ import "../App.css";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries, setPage } from "../redux/actions";
+import {
+  getCountries,
+  setPage,
+  setActivity,
+  setContinent,
+  setName,
+  setOrderAlphabetic,
+} from "../redux/actions";
 import Card from "./Card";
 import Order from "./Order";
 import Search from "./Search";
@@ -24,6 +31,23 @@ function Home() {
     activity,
     loading,
   } = useSelector((state) => state);
+  useEffect(() => {
+    dispatch(setActivity(0));
+    dispatch(setPage(0));
+    dispatch(setContinent(""));
+    dispatch(setName(""));
+    dispatch(setOrderAlphabetic("asc"));
+    dispatch(
+      getCountries({
+        page: 0,
+        orderAlphabetic: "asc",
+        continent: "",
+        name: "",
+        activity: 0,
+      })
+    );
+  }, [dispatch]);
+
   useEffect(() => {
     dispatch(
       getCountries({
