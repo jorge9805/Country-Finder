@@ -18,18 +18,18 @@ const FilterByActivity = () => {
 
   const handleChange = (e) => {
     // console.log(e.target.value);
+    dispatch(setPage(0));
+    dispatch(setActivity(e.target.value));
     dispatch(
       getCountries({
+        page: 0,
+        activity: e.target.value,
         name,
         orderAlphabetic,
         orderPopulation,
         continent,
-        page: 0,
-        activity: e.target.value,
       })
     );
-    dispatch(setPage(0));
-    dispatch(setActivity(e.target.value));
   };
   return (
     <div>
