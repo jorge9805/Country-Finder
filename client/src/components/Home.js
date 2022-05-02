@@ -11,10 +11,19 @@ import FilterByActivity from "./FilterByActivity";
 import CardCSS from "./Styles/Card.module.css";
 import FilterBarCSS from "./Styles/FilterBar.module.css";
 import HomeCSS from "./Styles/Home.module.css";
+import LoadSpinner from "./LoadSpinner";
 function Home() {
   const dispatch = useDispatch();
-  const { countries, page, orderAlphabetic, orderPopulation, continent, name } =
-    useSelector((state) => state);
+  const {
+    countries,
+    page,
+    orderAlphabetic,
+    orderPopulation,
+    continent,
+    name,
+    activity,
+    loading,
+  } = useSelector((state) => state);
   useEffect(() => {
     dispatch(
       getCountries({
@@ -23,14 +32,24 @@ function Home() {
         orderPopulation,
         continent,
         name,
+        activity,
       })
     );
-  }, [dispatch, page, orderAlphabetic, orderPopulation, continent, name]);
+  }, [
+    dispatch,
+    page,
+    orderAlphabetic,
+    orderPopulation,
+    continent,
+    name,
+    activity,
+  ]);
   let countriesOfPage = [];
   countries && (countriesOfPage = countries.slice(page * 10, page * 10 + 10));
   countriesOfPage = countriesOfPage.map((country) => {
     return <Card {...country} key={country.id} id={country.id} />;
   });
+
   return (
     <div className="App">
       <Search />
@@ -41,9 +60,17 @@ function Home() {
         <FilterByActivity />
       </div>
       <hr />
+
       <div className={CardCSS.card_list}>{countriesOfPage}</div>
-      {countries.length === 0 && (
-        <p className={HomeCSS.nocountries}>No Country Matched Your Search!</p>
+      {loading ? (
+        <div className={CardCSS.loading}>
+          <LoadSpinner />
+          <h3>Loading...</h3>
+        </div>
+      ) : (
+        countries.length === 0 && (
+          <p className={HomeCSS.nocountries}>No Country Matched Your Search!</p>
+        )
       )}
       <div className={HomeCSS.btns}>
         <button onClick={() => dispatch(setPage(page === 0 ? 0 : page - 1))}>

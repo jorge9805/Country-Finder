@@ -21,6 +21,7 @@ const initialState = {
   detail: {},
   activities: [],
   activity: 0,
+  loading: true,
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -42,11 +43,13 @@ const reducer = (state = initialState, { type, payload }) => {
         return {
           ...state,
           countries: countriesByActivity,
+          loading: false,
         };
       }
       return {
         ...state,
         countries,
+        loading: false,
       };
 
     case GET_COUNTRY_BY_ID:

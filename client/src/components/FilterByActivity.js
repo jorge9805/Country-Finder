@@ -35,6 +35,7 @@ const FilterByActivity = () => {
     <div>
       <select name="activities" id="activities" onChange={handleChange}>
         <option value="">Activities</option>
+        <option value="">No activities</option>
         {activities?.map((activity) => {
           return (
             <option key={activity.id} value={activity.id}>
